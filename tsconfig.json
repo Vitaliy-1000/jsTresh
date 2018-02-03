@@ -1,0 +1,14 @@
+
+{
+    "compilerOptions": {
+        "outDir": "bild",
+        "module": "commonjs",
+        "target": "es2015",
+        "experimentalDecorators": true,
+        "sourceMap": true
+    },
+    "exclude": [
+        "node_modules/"
+    ]
+
+}
