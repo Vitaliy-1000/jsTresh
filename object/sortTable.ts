@@ -1,4 +1,4 @@
-import {element, $, $$, browser} from "protractor";
+import {element, $, $$, browser, protractor, ExpectedConditions} from "protractor";
 import { userInfo } from "os";
 import { ElementFinder, ElementArrayFinder } from "protractor/built/element";
 
@@ -20,15 +20,17 @@ export class SortTable {
 
     get sortByPrice() {
         return { 
-            
+
             lowToHight: async () => {
-                //await this.buttonGroup.waitForElements(2000);
+                let EC = protractor.ExpectedConditions;
+                await browser.wait(EC.elementToBeClickable($('.btn.btn-default')), 2000);
                 const but = await this.buttonGroup.get(1);
                 await but.click();
                 },
 
             higthToLow: async () => {
-                //await this.buttonGroup.waitForElements(2000);
+                let EC = protractor.ExpectedConditions;
+                await browser.wait(EC.elementToBeClickable($('.btn.btn-default')), 2000);
                 const but = await this.buttonGroup.get(2);
                 await but.click(); 
             }
@@ -38,7 +40,8 @@ export class SortTable {
     }
 
     async textArraySortPrice(asertType) {
-        //await this.price.waitForElements(1000);
+        let EC = protractor.ExpectedConditions;
+        await browser.wait(EC.elementToBeClickable($('.active.price')), 2000);
         let textArr = [];
         textArr = await this.price.map(async (element) => {
                 return await element.getText()   

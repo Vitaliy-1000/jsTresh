@@ -40,14 +40,13 @@ describe('angularjs homepage todo list', function() {
       const sortResultH = await sortTable.textArraySortPrice('higthToLow');
 
       expect(sortResultH).to.eql(true);
-
+    
       await addMachines.addMachines(machine);
 
       expect(await addMachines.checkTheAudition('Sapa-200')).to.eql(true);
     
-      expect(await addMachines.removeMachine()).to.eql(true);
+      //expect(await addMachines.removeMachine()).to.eql(true);
 
-      expect(await addMachines.filterMark('ITALMIX DUPLEX')).to.eql(true);
+      expect(await addMachines.filterMark('ITALMIX DUPLEX 10 MC')).to.eql(true);
     });
   });
-

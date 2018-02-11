@@ -1,4 +1,4 @@
-import {element, $, $$, browser} from "protractor";
+import {element, $, $$, browser, protractor, ExpectedConditions} from "protractor";
 import { userInfo } from "os";
 import { ElementFinder, ElementArrayFinder } from "protractor/built/element";
 
@@ -27,6 +27,7 @@ export class AddMachines {
     removeMachines: ElementFinder;
     inputSortMark: ElementFinder;
     buttonFilter: ElementArrayFinder;
+    
 
     constructor() {
         this.mark = $('[placeholder="Марка"]')
@@ -97,11 +98,13 @@ export class AddMachines {
     async filterMark(textMachine) {
         await this.inputSortMark.sendKeys(textMachine);
 
-        //await this.buttonFilter.waitForElements(1000);
+        let EC = protractor.ExpectedConditions; 
+
+        browser.wait(EC.elementToBeSelected($('.btn.btn-defult')), 5000);
         const but = await this.buttonFilter.get(0);
         await but.click();
 
-        //await this.valuesAddMachines.waitForElements(1000);
+        browser.wait(EC.elementToBeSelected($('.active.brand')), 5000);
         const addMachines  = await this.valuesAddMachines.map(async (element) => {
                 return await element.getText()   
                 });
@@ -110,8 +113,10 @@ export class AddMachines {
         for(let i = 0; i < addMachines.length; i++) {
             if(textMachine == addMachines[i]) {
                 endFilter = true;
+                return endFilter;
             }
+            
         }
-        return endFilter;
+        
     }
 }
