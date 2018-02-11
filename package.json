@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "protractor protractor.conf.js",
-    "test1" : "tsc",
-    "wd:update" : "webdriver-manager update",
-    "wd:start" : "webdriver-manager start"
+    "test1": "tsc",
+    "wd:update": "webdriver-manager update",
+    "wd:start": "webdriver-manager start"
   },
   "repository": {
     "type": "git",
