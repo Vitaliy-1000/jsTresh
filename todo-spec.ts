@@ -13,6 +13,8 @@ const userded = {
   password: 'ded'
 };
 
+const machine = require("./object/machine.json")
+/*
 const machine = {
   mark: 'Sapa-200',
   volume: '12',
@@ -22,6 +24,7 @@ const machine = {
   power: '4643',
   price: '5000463'
 }
+*/
 
 describe('angularjs homepage todo list', function() {
     it('should add a todo', async function() {
